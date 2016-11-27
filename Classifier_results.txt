@@ -1,0 +1,130 @@
+SGDClass = SGDClassifier(class_weight=weights, 
+                         loss='log',
+                         alpha=1.0/1000000,
+                         l1_ratio=1,
+                         learning_rate='optimal',
+                         shuffle=True,
+                         eta0=0.01)
+
+#compute_class_weight('auto', classes, y)
+for i in range(0,1000000,1000):
+    train = pd.read_sql_query('SELECT * '
+                              'FROM data '
+                              'LIMIT 1000 OFFSET %i;  '%i, disk_engine)
+
+[0 0 0 ..., 0 0 0]
+1000000
+156743
+15 %
+
+---------------------------------------------------------------------------
+#define the classifier
+classes = np.array([0,1])
+weights = {0: 1, 1: 27}
+SGDClass = SGDClassifier(class_weight=weights)
+
+#compute_class_weight('auto', classes, y)
+for i in range(0,1000000,1000):
+    train = pd.read_sql_query('SELECT * '
+                              'FROM data '
+                              'LIMIT 1000 OFFSET %i;  '%i, disk_engine)
+
+[0 0 0 ..., 0 0 0]
+1000000
+6956
+0.6956 % of cancelled flights
+---------------------------------------------------------------------------
+#define the classifier
+classes = np.array([0,1])
+weights = {0: 1, 1: 27}
+SGDClass = SGDClassifier(class_weight=weights, 
+                         #loss='log',
+                         #alpha=1.0/1000000,
+                         #l1_ratio=1,
+                         #learning_rate='optimal',
+                         shuffle=True,
+                         #eta0=0.01
+                         )
+
+#compute_class_weight('auto', classes, y)
+for i in range(0,1000000,1000):
+    train = pd.read_sql_query('SELECT * '
+                              'FROM data '
+                              'LIMIT 1000 OFFSET %i;  '%i, disk_engine)
+[0 0 0 ..., 0 0 0]
+1000000
+0
+0.0 % of cancelled flights
+---------------------------------------------------------------------------
+#define the classifier
+classes = np.array([0,1])
+weights = {0: 1, 1: 27}
+SGDClass = SGDClassifier(class_weight=weights, 
+                         #loss='log',
+                         alpha=1.0,
+                         #l1_ratio=1,
+                         #learning_rate='optimal',
+                         shuffle=True,
+                         #eta0=0.01
+                         )
+
+#compute_class_weight('auto', classes, y)
+for i in range(0,1000000,1000):
+    train = pd.read_sql_query('SELECT * '
+                              'FROM data '
+                              'LIMIT 1000 OFFSET %i;  '%i, disk_engine)
+[1 1 1 ..., 1 1 1]
+1000000
+1000000
+100.0 % of cancelled flights
+---------------------------------------------------------------------------
+#define the classifier
+classes = np.array([0,1])
+weights = {0: 1, 1: 27}
+SGDClass = SGDClassifier(class_weight=weights, 
+                         #loss='log',
+                         alpha=1.0,
+                         #l1_ratio=1,
+                         #learning_rate='optimal',
+                         shuffle=True,
+                         #eta0=0.01
+                         )
+
+#compute_class_weight('auto', classes, y)
+for i in range(0,1000000,1000):
+    train = pd.read_sql_query('SELECT * '
+                              'FROM data '
+                              'LIMIT 1000 OFFSET %i;  '%i, disk_engine)
+[0 0 0 ..., 0 0 0]
+1000000
+7265
+0.7265 % of cancelled flights
+---------------------------------------------------------------------------
+#define the classifier
+classes = np.array([0,1])
+weights = {0: 1, 1: 27}
+SGDClass = SGDClassifier(class_weight=weights, 
+                         #loss='log',
+                         alpha=1.0,
+                         #l1_ratio=1,
+                         #learning_rate='optimal',
+                         shuffle=True,
+                         #eta0=0.01
+                         )
+
+#compute_class_weight('auto', classes, y)
+for i in range(0,1000000,1000):
+    train = pd.read_sql_query('SELECT * '
+                              'FROM data '
+                              'LIMIT 1000 OFFSET %i;  '%i, disk_engine)
+
+#load a test dataframe
+test = pd.read_sql_query('SELECT * '
+                        'FROM data '
+                        'LIMIT 1000000 OFFSET 3000000 ', disk_engine)
+X_new = test.loc[:,feature_cols]
+[0 0 0 ..., 0 0 0]
+6470
+0.4481 % is the REAL percentage of cancellations
+0.647 % is the PREDICTED percentage of cancellations
+---------------------------------------------------------------------------
